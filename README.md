@@ -1,0 +1,2 @@
+# gabaithon202303_team2
+ガバイソン2023年3月チーム2のrepository
