@@ -11,7 +11,7 @@
 
 ### ・手順
 
-1. コマンドプロンプト、ターミナル、powershellなどを開く
+1. ターミナル or powershell（コマンドプロンプトはできないコマンドがあった）などを開く
 2. 開発をするディレクトリまで移動する（どこでもいい）
 3. gabaithon202303_team2のrepositoryをgit cloneする(現在のディレクトリを確認しておく)
 
@@ -23,13 +23,14 @@
    3. 作業ディレクトリでコマンドを実行する
 
         ``` git clone git@github.com:scla-sagauniv/gabaithon202303_team2.git```
-    4. 実行したディレクトリにREADME.MDとpet_quizが追加される
+    4. 実行したディレクトリにgabaithon202303_team2が追加される
 
 ### ・ssh接続について
 
 - 何かよくssh接続で詰まるので一応記載
 
     sshで接続するためにgithubにsshキーを登録する必要がある。詳しくは下記URLを参考。
-    
+
      https://qiita.com/shizuma/items/2b2f873a0034839e47ce
+
 
