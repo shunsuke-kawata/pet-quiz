@@ -20,7 +20,7 @@
 
         `python3 run.py` ,`python run.py` または コードエディタの実行ボタンなど
 
-   2. 以下のような画面が表示されると、[http://localhost:8000/](http://localhost:8000/)でreactアプリケーションが起動する
+   2. 以下のような画面が表示されると、[http://localhost:8000/](http://localhost:8000/)でfastAPIアプリケーションが起動する
 
    ```
     INFO:     Started server process [2952]
