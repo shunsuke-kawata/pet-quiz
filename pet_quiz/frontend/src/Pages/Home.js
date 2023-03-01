@@ -1,7 +1,15 @@
 import React from 'react'
+import classes from "../css/Home.module.css";
+import Button from "../Components/Button";
 
-export default function Home() {
+const Home = () => {
   return (
-    <div>Home</div>
+    <div className={classes.homeContainer}>
+        <div className={classes.title}>ペットクイズだよだよ</div>
+        <Button/>
+    </div>
+    
   )
 }
+
+export default Home
