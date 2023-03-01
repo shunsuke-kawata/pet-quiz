@@ -1,0 +1,23 @@
+.parent{
+    align-items: center;
+    padding:  10px;             
+    display: flex;
+    justify-content: center;
+}
+.start{
+    margin: 50px;
+    font-size: 4vw;
+    padding: 10px;
+    color:  #000;               
+    margin:  10px;    
+    align-items: center;
+    border-radius:  10px;        
+    background-color: #ffbc04;
+    text-align: center;
+    box-shadow:  3px 3px 0 #555;
+    transition: .25s;
+
+}
+.start:hover{
+    box-shadow: 1px 1px 0 #555;
+}
