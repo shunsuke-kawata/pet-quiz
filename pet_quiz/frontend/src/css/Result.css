@@ -71,3 +71,9 @@
 .next-button:hover {
     box-shadow: 1px 1px 0 #555;
   }
+
+.btn{
+    background-color: #ffbc04;
+    font-size: 30px;
+    border-radius: 6px;
+}
