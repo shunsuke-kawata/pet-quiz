@@ -23,16 +23,8 @@ const Home = () => {
             }
           }
         ).then((response) => {
-          setContents(response.data);
-          // const a = []
-          // for (let i = 1; i < 3; i++){
-          //   a[0] = response.data[i].choices.choice1.body
-          //   a[1] = response.data[i].choices.choice2.body
-          //   a[2] = response.data[i].choices.choice3.body
-          //   a[3] = response.data[i].choices.choice4.body
-          // }
-          // console.log(a);
-          // setChoices(a)
+          const listData = response.data
+          setContents(listData);
         })
         
       } catch (error) {
@@ -42,32 +34,7 @@ const Home = () => {
     getContents();
   }, []);
   console.log(contents);
-
-  // contensの配列処理
-
-  // const oneQuestion = []
-  // for(var i=0; i<10; i++){
-  //   //配列の要素数を指定する
-  //   oneQuestion[i] = [];
-
-  //   oneQuestion[i][0] = contents.choices
-
-  //   oneQuestion[i][0] = contents.choices.choice1.body;
-  //   oneQuestion[i][0] = contents.choices.choice1.flag;
-
-  //   oneQuestion[i][1] = contents.choices.choice2.body;
-  //   oneQuestion[i][1] = contents.choices.choice2.flag;
-
-  //   oneQuestion[i][2] = contents.choices.choice3.body;
-  //   oneQuestion[i][2] = contents.choices.choice3.flag;
-
-  //   oneQuestion[i][3] = contents.choices.choice4.body;
-  //   oneQuestion[i][3] = contents.choices.choice4.flag;
-  // }
-  // console.log(oneQuestion);
   
-
-
   return (
     <div className={classes.homeContainer}>
         <div className={classes.title}>ペットクイズだよだよ</div>
