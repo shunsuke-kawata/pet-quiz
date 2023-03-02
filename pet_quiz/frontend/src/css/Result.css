@@ -47,6 +47,7 @@
     text-align: center;
     box-shadow:  3px 3px 0 #555;
     font-weight: bold;
+    border: 2px solid;
 
 }
 .next-parent{
@@ -65,7 +66,14 @@
     transition: .25s;
     text-decoration: none;
     font-weight: bold;
+    border: 2px solid;
   }
 .next-button:hover {
     box-shadow: 1px 1px 0 #555;
   }
+
+.btn{
+    background-color: #ffbc04;
+    font-size: 30px;
+    border-radius: 6px;
+}
