@@ -3,6 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import random
+import json
 
 JSON_PATH='./pet-quiz-cf348-firebase-adminsdk-4oflx-cde31cd4ab.json'
 def init_database():
@@ -13,166 +14,10 @@ def init_database():
     return db
 
 
-add_json ={
-            "id" :11,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            }
 
-add_list = [
-    {
-            "id" :12,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            },
-            {
-            "id" :13,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            },
-            {
-            "id" :14,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            },
-            {
-            "id" :15,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            },
-            {
-            "id" :5,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            }
-
-]
+ADD_DATA_PATH = './add.json'
+json_open = open(ADD_DATA_PATH, 'r')
+json_load = json.load(json_open)
 def add_data(db,add):
     
     try:
@@ -201,15 +46,18 @@ def main():
     db = init_database()
     
     # add_data(db,add_json)
-    add_list = [add_json,add_json,add_json,add_json,add_json,add_json]
-    add_some_data(db,add_list)
-
+    # add_list = [add_json,add_json,add_json,add_json,add_json,add_json]
+    add_some_data(db,json_load)
+    # lis = get_questions_by_num(db,5)
+    # if(lis!=None):
+    #     print(len(lis))
+    #     for l in lis:
+    #         print(l)
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
     docs = get_all_questions(db)
     if not (docs==None):
     #ナンバーの有効性を判定
-        print("doc len is ", len(docs))
         if(number<=len(docs)):
             published = []
             questions = []
