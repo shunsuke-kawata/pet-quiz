@@ -12,30 +12,167 @@ def init_database():
 
     return db
 
+
 add_json ={
-            "id" :9,
+            "id" :11,
             "question": "これはペンですか。",
-            "choices":{
-                "choice1":{
+            "choices":[
+                {
+                    "optionId":1,
                     "body":"選択肢1",
                     "flag":True
                 },
-                "choice2":{
-                    "body":"選択肢1",
+                {
+                    "optionId":2,
+                    "body":"選択肢2",
                     "flag":False
                 },
-                "choice3":{
+                {
+                    "optionId":3,
                     "body":"選択肢3",
                     "flag":False
                 },
-                "choice4":{
+                {
+                    "optionId":4,
                     "body":"選択肢4",
                     "flag":False
-                },
-            },
+                }],
             "explanation":"これはペンです。"
-        }
+            }
 
+add_list = [
+    {
+            "id" :12,
+            "question": "これはペンですか。",
+            "choices":[
+                {
+                    "optionId":1,
+                    "body":"選択肢1",
+                    "flag":True
+                },
+                {
+                    "optionId":2,
+                    "body":"選択肢2",
+                    "flag":False
+                },
+                {
+                    "optionId":3,
+                    "body":"選択肢3",
+                    "flag":False
+                },
+                {
+                    "optionId":4,
+                    "body":"選択肢4",
+                    "flag":False
+                }],
+            "explanation":"これはペンです。"
+            },
+            {
+            "id" :13,
+            "question": "これはペンですか。",
+            "choices":[
+                {
+                    "optionId":1,
+                    "body":"選択肢1",
+                    "flag":True
+                },
+                {
+                    "optionId":2,
+                    "body":"選択肢2",
+                    "flag":False
+                },
+                {
+                    "optionId":3,
+                    "body":"選択肢3",
+                    "flag":False
+                },
+                {
+                    "optionId":4,
+                    "body":"選択肢4",
+                    "flag":False
+                }],
+            "explanation":"これはペンです。"
+            },
+            {
+            "id" :14,
+            "question": "これはペンですか。",
+            "choices":[
+                {
+                    "optionId":1,
+                    "body":"選択肢1",
+                    "flag":True
+                },
+                {
+                    "optionId":2,
+                    "body":"選択肢2",
+                    "flag":False
+                },
+                {
+                    "optionId":3,
+                    "body":"選択肢3",
+                    "flag":False
+                },
+                {
+                    "optionId":4,
+                    "body":"選択肢4",
+                    "flag":False
+                }],
+            "explanation":"これはペンです。"
+            },
+            {
+            "id" :15,
+            "question": "これはペンですか。",
+            "choices":[
+                {
+                    "optionId":1,
+                    "body":"選択肢1",
+                    "flag":True
+                },
+                {
+                    "optionId":2,
+                    "body":"選択肢2",
+                    "flag":False
+                },
+                {
+                    "optionId":3,
+                    "body":"選択肢3",
+                    "flag":False
+                },
+                {
+                    "optionId":4,
+                    "body":"選択肢4",
+                    "flag":False
+                }],
+            "explanation":"これはペンです。"
+            },
+            {
+            "id" :5,
+            "question": "これはペンですか。",
+            "choices":[
+                {
+                    "optionId":1,
+                    "body":"選択肢1",
+                    "flag":True
+                },
+                {
+                    "optionId":2,
+                    "body":"選択肢2",
+                    "flag":False
+                },
+                {
+                    "optionId":3,
+                    "body":"選択肢3",
+                    "flag":False
+                },
+                {
+                    "optionId":4,
+                    "body":"選択肢4",
+                    "flag":False
+                }],
+            "explanation":"これはペンです。"
+            }
+
+]
 def add_data(db,add):
     
     try:
@@ -48,23 +185,31 @@ def add_data(db,add):
         print(2)
         return
 
+def add_some_data(db,add_list_data):      
+    doc_ref = db.collection('questions')
+    for add_j in add_list_data:
+        try:
+            doc_ref.add(add_j)
+            print("added")
+        except:
+            print("denyed")
+            return
+
+        
+
 def main():
     db = init_database()
-    random_questions = get_questions_by_num(db,3)
-
-    if not (random_questions==None):
-        for i in random_questions:
-            print(i.get("choices"))
-    else:
-        return
     
     # add_data(db,add_json)
+    add_list = [add_json,add_json,add_json,add_json,add_json,add_json]
+    add_some_data(db,add_list)
 
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
     docs = get_all_questions(db)
     if not (docs==None):
     #ナンバーの有効性を判定
+        print("doc len is ", len(docs))
         if(number<=len(docs)):
             published = []
             questions = []
