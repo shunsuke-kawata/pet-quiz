@@ -3,6 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import random
+import json
 
 JSON_PATH='./pet-quiz-cf348-firebase-adminsdk-4oflx-cde31cd4ab.json'
 def init_database():
@@ -12,33 +13,10 @@ def init_database():
 
     return db
 
-add_json ={
-            "id" :9,
-            "question": "これはペンですか。",
-            "choices":[
-                {
-                    "optionId":1,
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                {
-                    "optionId":2,
-                    "body":"選択肢2",
-                    "flag":False
-                },
-                {
-                    "optionId":3,
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                {
-                    "optionId":4,
-                    "body":"選択肢4",
-                    "flag":False
-                }],
-            "explanation":"これはペンです。"
-            }
 
+ADD_DATA_PATH = './add.json'
+json_open = open(ADD_DATA_PATH, 'r')
+json_load = json.load(json_open)
 def add_data(db,add):
     
     try:
@@ -51,10 +29,21 @@ def add_data(db,add):
         print(2)
         return
 
+def add_some_data(db,add_list_data):      
+    doc_ref = db.collection('questions')
+    for add_j in add_list_data:
+        try:
+            doc_ref.add(add_j)
+            print("added")
+        except:
+            print("denyed")
+            return
+
+        
+
 def main():
     db = init_database()
-    
-    add_data(db,add_json)
+    add_some_data(db,json_load)
 
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
