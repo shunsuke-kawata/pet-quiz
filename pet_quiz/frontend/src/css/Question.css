@@ -1,0 +1,31 @@
+.question-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.question-container h1 {
+  font-size: 60px;
+  margin: 140px 40px 20px 40px;
+}
+.options{
+  display: flex;
+  flex-direction: column;
+}
+.option-btn {
+  text-align: left;
+  width: 50%;
+  font-size: 30px;
+  padding: 15px 30px;
+  color:  #000;               
+  margin-top: 30px;
+  align-items: center;
+  border-radius:  10px;        
+  background-color: #ffbc04;
+  box-shadow:  3px 3px 0 #555;
+  transition: .25s;
+}
+.option-btn:hover {
+  box-shadow: 1px 1px 0 #555;
+}
