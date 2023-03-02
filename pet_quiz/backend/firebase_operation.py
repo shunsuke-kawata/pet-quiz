@@ -14,7 +14,6 @@ def init_database():
     return db
 
 
-
 ADD_DATA_PATH = './add.json'
 json_open = open(ADD_DATA_PATH, 'r')
 json_load = json.load(json_open)
@@ -44,20 +43,14 @@ def add_some_data(db,add_list_data):
 
 def main():
     db = init_database()
-    
-    # add_data(db,add_json)
-    # add_list = [add_json,add_json,add_json,add_json,add_json,add_json]
     add_some_data(db,json_load)
-    # lis = get_questions_by_num(db,5)
-    # if(lis!=None):
-    #     print(len(lis))
-    #     for l in lis:
-    #         print(l)
+
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
     docs = get_all_questions(db)
     if not (docs==None):
     #ナンバーの有効性を判定
+        print("doc len is ", len(docs))
         if(number<=len(docs)):
             published = []
             questions = []
