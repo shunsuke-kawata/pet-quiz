@@ -4,14 +4,16 @@ import { useState } from 'react';
 import TotalResult from './TotalResult';
 
 
-export default function Question({setanswerFlag,setqandaFlag,questionFlag,rightCount}) {
+export default function Question({setanswerFlag,setqandaFlag,questionFlag,rightCount,content}) {
   const member = ["Araki", "Ibata", "Fukutome", "Woods"];
   //問題の正誤を保持する変数
-  
+  console.log(content);
 
   const handleClick=(flag)=>{
     setqandaFlag(true)
     setanswerFlag(flag) //問題からとってきた正誤の変数
+
+    // ここに１０回目の終了処理書くかも？？
   }
 
   const optionObj = member.map((item, idx) =>
@@ -45,4 +47,3 @@ console.log(rightCount);
     </div>*/
   )
 }
-export default Question;
