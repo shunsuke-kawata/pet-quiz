@@ -16,6 +16,8 @@
     text-align: center;
     box-shadow:  3px 3px 0 #555;
     transition: .25s;
+    text-decoration: none;
+
 
 }
 .start:hover{

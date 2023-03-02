@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <div className={classes.homeContainer}>
         <div className={classes.title}>ペットクイズだよだよ</div>
-        <Button/>
+        <div className='parent'>
+            <Button toLink="/question" ButtonContent="スタート"/>
+        </div>
     </div>
     
   )

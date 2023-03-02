@@ -1,13 +1,8 @@
 import React from 'react'
 import  "../css/Button.css";
-import { BrowserRouter, Route } from "react-router-dom";
 
-function Button() {
+export default function Button(props) {
   return (
-    <div className="parent">
-        <button className="start">スタート</button>
-    </div>        
+    <a href={props.toLink} className="start">{props.ButtonContent}</a> 
   )
 }
-
-export default Button
