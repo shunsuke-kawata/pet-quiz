@@ -52,34 +52,40 @@ def main():
     db = init_database()
     random_questions = get_questions_by_num(db,3)
 
-    for i in random_questions:
-        print(i.get("choices"))
+    if not (random_questions==None):
+        for i in random_questions:
+            print(i.get("choices"))
+    else:
+        return
     
     # add_data(db,add_json)
 
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
     docs = get_all_questions(db)
-    
+    if not (docs==None):
     #ナンバーの有効性を判定
-    if(number<=len(docs)):
-        published = []
-        questions = []
-        i=0
-        while(i<number):
-            ##問題番号をランダムに生成
-            question_index = random.randint(0,len(docs)-1)
-            if not (question_index in published):
-                published.append(question_index)
-                for doc in docs:
-                    if(str(doc.get("id"))==str(question_index)):
-                        questions.append(doc)
-                        i+=1
-        
-        return questions
+        if(number<=len(docs)):
+            published = []
+            questions = []
+            i=0
+            while(i<number):
+                ##問題番号をランダムに生成
+                question_index = random.randint(0,len(docs)-1)
+                if not (question_index in published):
+                    published.append(question_index)
+                    for doc in docs:
+                        if(str(doc.get("id"))==str(question_index)):
+                            question=doc.to_dict()
+                            questions.append(question)
+                            i+=1
             
+            return questions
+                
+        else:
+            return None
     else:
-        return None
+        return
 
     
 def get_all_questions(db):
