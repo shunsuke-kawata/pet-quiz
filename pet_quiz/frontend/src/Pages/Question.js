@@ -3,6 +3,7 @@ import "../css/Question.css";
 import { useState } from 'react';
 import TotalResult from './TotalResult';
 
+
 export default function Question({setanswerFlag,setqandaFlag,questionFlag,rightCount}) {
   const member = ["Araki", "Ibata", "Fukutome", "Woods"];
   //問題の正誤を保持する変数
@@ -44,3 +45,4 @@ console.log(rightCount);
     </div>*/
   )
 }
+export default Question;
