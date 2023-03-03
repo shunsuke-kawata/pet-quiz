@@ -12,8 +12,8 @@ export default function Result({
   setquestionFlag,
   rightCount,
   setrightCount,
+  content,
 }) {
-  console.log(answerCount);
   const handleClick = () => {
     if (answerCount < 9) {
       setanswerCount(answerCount + 1);
@@ -38,9 +38,7 @@ export default function Result({
           <div className="answer">正解！おめでとう！！</div>
           <div className="parent">
             <div className="commentary-parent">
-              <p className="commentary">
-                ここに解説を書きますよここに解説を書きますよここに解説を書きますよここに解説を書きますよここに解説を書きますよ
-              </p>
+              <p className="commentary">{content?.explanation}</p>
             </div>
             <button className="btn" onClick={() => autoClick()}>
               次の問題へ
@@ -56,9 +54,7 @@ export default function Result({
           <div className="answer">不正解！あほ</div>
           <div className="parent">
             <div className="commentary-parent">
-              <p className="commentary">
-                ここに解説を書きますよここに解説を書きますよここに解説を書きますよここに解説を書きますよここに解説を書きますよ
-              </p>
+              <p className="commentary">{content?.explanation}</p>
             </div>
             <button className="btn" onClick={() => handleClick()}>
               次の問題へ
