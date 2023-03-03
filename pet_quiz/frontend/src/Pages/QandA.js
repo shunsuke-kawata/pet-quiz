@@ -38,27 +38,53 @@ const QandA = () => {
   console.log(contents[answerCount]);
   console.log(answerCount);
 
+  const result = (
+    <Result
+      answerFlag={answerFlag}
+      setanswerFlag={setanswerFlag}
+      setqandaFlag={setqandaFlag}
+      answerCount={answerCount}
+      setanswerCount={setanswerCount}
+      setquestionFlag={setquestionFlag}
+      rightCount={rightCount}
+      setrightCount={setrightCount}
+      content={contents[answerCount]}
+    />
+  );
+  const question = (
+    <Question
+      setanswerFlag={setanswerFlag}
+      setqandaFlag={setqandaFlag}
+      questionFlag={questionFlag}
+      rightCount={rightCount}
+      content={contents[answerCount]}
+    />
+  );
+
   return (
     <>
       {qandaFlag ? (
-        <Result
-          answerFlag={answerFlag}
-          setanswerFlag={setanswerFlag}
-          setqandaFlag={setqandaFlag}
-          answerCount={answerCount}
-          setanswerCount={setanswerCount}
-          setquestionFlag={setquestionFlag}
-          rightCount={rightCount}
-          setrightCount={setrightCount}
-        />
+        // <Result
+        //   answerFlag={answerFlag}
+        //   setanswerFlag={setanswerFlag}
+        //   setqandaFlag={setqandaFlag}
+        //   answerCount={answerCount}
+        //   setanswerCount={setanswerCount}
+        //   setquestionFlag={setquestionFlag}
+        //   rightCount={rightCount}
+        //   setrightCount={setrightCount}
+        //   content={contents[answerCount]}
+        // />
+        <>{result}</>
       ) : (
-        <Question
-          setanswerFlag={setanswerFlag}
-          setqandaFlag={setqandaFlag}
-          questionFlag={questionFlag}
-          rightCount={rightCount}
-          content={contents[answerCount]}
-        />
+        // <Question
+        //   setanswerFlag={setanswerFlag}
+        //   setqandaFlag={setqandaFlag}
+        //   questionFlag={questionFlag}
+        //   rightCount={rightCount}
+        //   content={contents[answerCount]}
+        // />
+        <>{question}</>
       )}
     </>
   );

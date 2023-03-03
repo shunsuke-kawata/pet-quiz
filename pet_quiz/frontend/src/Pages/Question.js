@@ -35,7 +35,7 @@ export default function Question({
         <TotalResult rightCount={rightCount} />
       ) : (
         <div className="question-container">
-          <h3>{content?.explanation}</h3>
+          <h3>{content?.question}</h3>
           <div className="options">{optionObj}</div>
         </div>
       )}
