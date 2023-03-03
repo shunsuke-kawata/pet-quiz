@@ -3,6 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import random
+import json
 
 JSON_PATH='./pet-quiz-cf348-firebase-adminsdk-4oflx-cde31cd4ab.json'
 def init_database():
@@ -12,35 +13,14 @@ def init_database():
 
     return db
 
-add_json ={
-            "id" :9,
-            "question": "これはペンですか。",
-            "choices":{
-                "choice1":{
-                    "body":"選択肢1",
-                    "flag":True
-                },
-                "choice2":{
-                    "body":"選択肢1",
-                    "flag":False
-                },
-                "choice3":{
-                    "body":"選択肢3",
-                    "flag":False
-                },
-                "choice4":{
-                    "body":"選択肢4",
-                    "flag":False
-                },
-            },
-            "explanation":"これはペンです。"
-        }
 
+ADD_DATA_PATH = './add.json'
+json_open = open(ADD_DATA_PATH, 'r')
+json_load = json.load(json_open)
 def add_data(db,add):
     
     try:
         doc_ref = db.collection('questions')
-        
         doc_ref.add(add)
         print(1)
         return
@@ -48,28 +28,37 @@ def add_data(db,add):
         print(2)
         return
 
+def add_some_data(db,add_list_data):      
+    doc_ref = db.collection('questions')
+    for add_j in add_list_data:
+        try:
+            doc_ref.add(add_j)
+            print("added")
+        except:
+            print("denyed")
+            return
+
+        
+
 def main():
     db = init_database()
-    random_questions = get_questions_by_num(db,3)
-
-    if not (random_questions==None):
-        for i in random_questions:
-            print(i.get("choices"))
-    else:
-        return
-    
-    # add_data(db,add_json)
+    add_some_data(db,json_load)
 
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
     docs = get_all_questions(db)
     if not (docs==None):
-    #ナンバーの有効性を判定
+        #ナンバーの有効性を判定
         if(number<=len(docs)):
             published = []
             questions = []
             i=0
             while(i<number):
+                print('count:')
+                print(i)
+                print(len(docs)-1)
+                # for doc in docs:
+                #     print(doc.get("id"))
                 ##問題番号をランダムに生成
                 question_index = random.randint(0,len(docs)-1)
                 if not (question_index in published):
@@ -80,9 +69,13 @@ def get_questions_by_num(db,number):
                             questions.append(question)
                             i+=1
             
+          
+
+            
             return questions
                 
         else:
+            print(222222)
             return None
     else:
         return
@@ -92,6 +85,7 @@ def get_all_questions(db):
      questions_ref = db.collection(u'questions')
      docs = questions_ref.get()
      if (len(docs)==0):
+        print("err doc")
         return None    
      else:
         return docs

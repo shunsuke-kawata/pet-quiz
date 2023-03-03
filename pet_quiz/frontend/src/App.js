@@ -5,6 +5,7 @@ import Question from "./Pages/Question";
 import Result from "./Pages/Result";
 import TotalResult from "./Pages/TotalResult";
 import MakeQuiz from "./Pages/MakeQuiz";
+import QandA from "./Pages/QandA";
 
 function App() {
   return(
@@ -13,7 +14,7 @@ function App() {
         <Home />
       </Route>
       <Route path="/question">
-        <Question />
+        <QandA/>
       </Route>
       <Route path="/result">
         <Result />
