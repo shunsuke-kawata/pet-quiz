@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Question from "./Pages/Question";
 import Result from "./Pages/Result";
 import TotalResult from "./Pages/TotalResult";
+import MakeQuiz from "./Pages/MakeQuiz";
 import QandA from "./Pages/QandA";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
       </Route>
       <Route path="/totalResult">
         <TotalResult />
+      </Route>
+      <Route path="/makeQuiz">
+        <MakeQuiz />
       </Route>
     </BrowserRouter>
   )
