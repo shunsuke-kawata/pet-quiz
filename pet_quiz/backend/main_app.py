@@ -6,8 +6,8 @@ app = FastAPI()
 origins = ["http://localhost:3000","https://gabaithon202303-team2-v8yd.vercel.app/"]
 app.add_middleware(
   CORSMiddleware,
-  allow_origins=origins,
-  allow_credentials=True,
+  allow_origins=["*"],
+  allow_credentials=False,
   allow_methods=["*"],
   allow_headers=["*"],
 )
