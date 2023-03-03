@@ -1,0 +1,98 @@
+.makequiz{
+    text-align: center;
+    font-weight: bold;
+}
+.quiztext{
+    text-align: center;
+}
+.quiz-parent{
+    text-align: center;
+    margin: 20px;
+}   
+.quiz{
+    width: 500px;
+    height: 120px;   
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 25px;
+
+}
+.Grandparent{
+
+}
+.parent-1{
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+}
+.parent-2{
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+
+}
+.parent-3{
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+
+
+}
+.parent-4{
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+}
+
+.select{
+    
+    height: 50px;
+
+
+}
+.text{
+    width: 500px;
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 25px;
+
+}
+
+.coment-parent{
+    text-align: center;
+    margin: 20px;
+}
+.coment{
+    width: 500px;
+    height: 120px;   
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 25px;
+
+}
+.makestart{
+    align-items: center;
+    padding:  10px;             
+    display: flex;
+    justify-content: center;
+}
+.Submit-btn{
+    font-size: 2vw;
+    padding: 10px;
+    color:  #000;               
+    margin:  0 auto;    
+    align-items: center;
+    border-radius:  10px;        
+    background-color: #ffbc04;
+    text-align: center;
+    box-shadow:  3px 3px 0 #555;
+    transition: .25s;
+    text-decoration: none;
+    border: 2px solid;
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+}
+.Submit-btn:hover{
+    box-shadow: 0 0 0  #555;
+}
