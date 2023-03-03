@@ -11,7 +11,7 @@ const QandA = () => {
     const getContents = async () => {
       try {
         const response = await axios
-          .get("http://localhost:8000/getData", {
+          .get("https://thawing-mountain-33088.herokuapp.com/getData", {
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
               "Access-Control-Allow-Origin": "*",

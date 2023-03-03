@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import firebase_operation
 app = FastAPI()
 
-origins = ["http://localhost:3000"]
+origins = ["http://localhost:3000","https://gabaithon202303-team2-v8yd.vercel.app/"]
 app.add_middleware(
   CORSMiddleware,
   allow_origins=origins,
