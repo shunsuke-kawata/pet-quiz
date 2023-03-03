@@ -15,8 +15,6 @@ def init_database():
 
 
 ADD_DATA_PATH = './add.json'
-json_open = open(ADD_DATA_PATH, 'r')
-json_load = json.load(json_open)
 def add_data(db,add):
     
     try:
@@ -42,7 +40,6 @@ def add_some_data(db,add_list_data):
 
 def main():
     db = init_database()
-    add_some_data(db,json_load)
 
 #問題数を指定して問題を返す
 def get_questions_by_num(db,number):
