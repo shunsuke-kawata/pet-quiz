@@ -22,7 +22,7 @@ async def root():
 @app.get("/getData")
 async def get_data():
  
- response = firebase_operation.get_questions_by_num(db,8)
+ response = firebase_operation.get_questions_by_num(db,10)
  if(response==None):
   print("response none")
   raise HTTPException(status_code=500, detail="response is invalid")
